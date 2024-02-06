@@ -3,6 +3,8 @@ package edu.uw.ischool.kaiyaw.quizdroid
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.widget.Button
 import android.widget.TextView
 import java.io.Serializable
@@ -43,6 +45,7 @@ class AnswerActivity : AppCompatActivity() {
             btnNextFinish.text = getString(R.string.btn_next)
             btnNextFinish.setOnClickListener {
                 val intent = Intent(this, QuestionActivity::class.java).apply {
+                    putExtra("OrigIntent", intent.getParcelableExtra<Intent>("OrigIntent")!! as Parcelable)
                     putExtra("Questions", questions as Serializable)
                     putExtra("Answered", "")
                     putExtra("Correct", "")

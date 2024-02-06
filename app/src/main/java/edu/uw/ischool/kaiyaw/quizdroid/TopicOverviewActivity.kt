@@ -26,6 +26,7 @@ class TopicOverviewActivity : AppCompatActivity() {
 
         btnTopicBegin.setOnClickListener {
             val intent = Intent(this, QuestionActivity::class.java).apply {
+                putExtra("OrigIntent", Intent())
                 putExtra("Questions", topic.questions as Serializable)
                 putExtra("Answered", "")
                 putExtra("Correct", "")
