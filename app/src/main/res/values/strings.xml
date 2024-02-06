@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">quizdroid</string>
+    <string name="btn_topic_begin">Begin</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_finish">Finish</string>
+    <string name="txt_answered">You answered: %1$s</string>
+    <string name="txt_correct">Correct answer: %1$s</string>
+    <string name="txt_ratio">You have %1$d of %2$d correct</string>
+</resources>
