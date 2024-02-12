@@ -1,9 +1,11 @@
 package edu.uw.ischool.kaiyaw.quizdroid
 
 import android.content.Intent
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -13,7 +15,7 @@ class QuizListAdapter(val topics: List<Topic>) :
         return ViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(
-                    android.R.layout.simple_list_item_1, parent, false
+                    R.layout.topic_list_item, parent, false
                 )
         )
     }
@@ -23,8 +25,9 @@ class QuizListAdapter(val topics: List<Topic>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.iconField.setImageResource(topics[position].icon_id)
         holder.textField.text = topics[position].name
-        holder.textField.setOnClickListener {
+        holder.view.setOnClickListener {
             val intent = Intent(holder.view.context, TopicOverviewActivity::class.java).apply {
                 putExtra("Topic", topics[position])
             }
@@ -32,8 +35,8 @@ class QuizListAdapter(val topics: List<Topic>) :
         }
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var textField = view.findViewById<TextView>(android.R.id.text1)
-        val view = view
+    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        var iconField = view.findViewById<ImageView>(R.id.icTopicListItem)
+        var textField = view.findViewById<TextView>(R.id.txtTopicItemName)
     }
 }

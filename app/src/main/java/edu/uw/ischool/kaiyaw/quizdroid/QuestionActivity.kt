@@ -4,13 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
 import java.io.Serializable
 
 class QuestionActivity : AppCompatActivity() {
@@ -48,7 +46,6 @@ class QuestionActivity : AppCompatActivity() {
         val question = questions[questionNum]
 
         txtQuestion.text = question.title
-        Log.i("QuestionActivity", "QuestionNum: ${questionNum}, Questions: ${questions}")
 
         val rbtnChoices = listOf(rbtnChoice1, rbtnChoice2, rbtnChoice3, rbtnChoice4)
         rbtnChoices.withIndex().forEach { (i, it) ->

@@ -22,7 +22,7 @@ class TopicOverviewActivity : AppCompatActivity() {
 
         val topic = intent.getSerializableExtra("Topic") as Topic
         txtTopicName.text = topic.name
-        txtTopicDesc.text = topic.desc
+        txtTopicDesc.text = topic.longDesc
 
         btnTopicBegin.setOnClickListener {
             val intent = Intent(this, QuestionActivity::class.java).apply {
