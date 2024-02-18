@@ -1,10 +1,52 @@
 package edu.uw.ischool.kaiyaw.quizdroid
 
-import android.app.Application
+import android.content.Context
+import android.content.res.AssetManager
+import org.json.JSONArray
+import org.json.JSONObject
 
 interface TopicRepository {
     fun getTopics(): List<Topic>
 }
+
+open class JSONTopicRepository(val jsonString: String) : TopicRepository {
+    override fun getTopics(): List<Topic> {
+        val topics = mutableListOf<Topic>()
+        val json = JSONArray(jsonString)
+        for (topic in 0 until json.length()) {
+            val topicObj = json.getJSONObject(topic)
+            val questions = mutableListOf<Question>()
+            val questionsArray = topicObj.getJSONArray("questions")
+            for (question in 0 until questionsArray.length()) {
+                val questionObj = questionsArray.getJSONObject(question)
+                val choices = mutableListOf<String>()
+                val choicesArray = questionObj.getJSONArray("answers")
+                for (choice in 0 until choicesArray.length()) {
+                    choices.add(choicesArray.getString(choice))
+                }
+                questions.add(
+                    Question(
+                        title = questionObj.getString("text"),
+                        choices = choices,
+                        answerIdx = questionObj.getString("answer").toInt() - 1
+                    )
+                )
+            }
+            topics += Topic(
+                name = topicObj.getString("title"),
+                shortDesc = topicObj.getString("desc"),
+                longDesc = topicObj.getString("desc"),
+                icon_id = android.R.drawable.ic_dialog_info,
+                questions = questions
+            )
+        }
+        return topics
+    }
+}
+
+class LocalStorageTopicRepository : JSONTopicRepository(
+    QuizApp.context.assets.open("questions.json").bufferedReader().use { it.readText() }
+)
 
 class PlainTextTopicRepository : TopicRepository {
     private val topics = listOf(

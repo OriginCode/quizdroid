@@ -7,4 +7,14 @@
     <string name="txt_answered">You answered: %1$s</string>
     <string name="txt_correct">Correct answer: %1$s</string>
     <string name="txt_ratio">You have %1$d of %2$d correct</string>
+    <string name="action_preferences">Preferences</string>
+    <string name="edt_url">URL</string>
+    <string name="txt_url">Url:</string>
+    <string name="txt_interval">Check Interval:</string>
+    <string name="edt_interval">Interval (min)</string>
+    <string name="pref_file_key">edu.uw.ischool.kaiyaw.quizdroid.PREF_FILE_KEY</string>
+    <string name="saved_url_key">edu.uw.ischool.kaiyaw.quizdroid.SAVED_URL_KEY</string>
+    <string name="saved_interval_key">edu.uw.ischool.kaiyaw.quizdroid.SAVED_INTERVAL_KEY</string>
+    <string name="default_url">http://tednewardsandbox.site44.com/questions.json</string>
+    <string name="default_interval">1</string>
 </resources>
