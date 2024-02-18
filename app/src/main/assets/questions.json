@@ -1,15 +1,15 @@
 [
-  { "title":"Science!",
-    "desc":"Because SCIENCE!",
+  { "title":"Math",
+    "desc":"Huh? Math!",
     "questions":[
       {
-        "text":"What is fire?",
-        "answer":"1",
+        "text":"What is 12 / 3",
+        "answer":"3",
         "answers":[
-          "One of the four classical elements",
-          "A magical reaction given to us by God",
-          "A band that hasn't yet been discovered",
-          "Fire! Fire! Fire! heh-heh"
+            "4",
+            "3",
+            "12",
+            "Nobody knows"
         ]
       }
     ]
@@ -18,11 +18,11 @@
     "questions":[
       {
         "text":"Who is Iron Man?",
-        "answer":"1",
+        "answer":"3",
         "answers":[
-          "Tony Stark",
           "Obadiah Stane",
-          "A rock hit by Megadeth",
+          "Some thing iron",
+          "Tony Stark",
           "Nobody knows"
         ]
       },
@@ -48,15 +48,15 @@
       }
     ]
   },
-  { "title":"Mathematics", "desc":"Did you pass the third grade?",
+  { "title":"OCaml", "desc":"It's a fun language...",
     "questions":[
       {
-        "text":"What is 2+2?",
+        "text":"Which one is the correct value of add1 2, given that add x y = x + y; add1 = add 1?",
         "answer":"1",
         "answers":[
-          "4",
-          "22",
-          "An irrational number",
+          "3",
+          "42",
+          "30",
           "Nobody knows"
         ]
       }
