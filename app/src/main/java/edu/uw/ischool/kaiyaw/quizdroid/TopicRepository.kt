@@ -45,8 +45,15 @@ open class JSONTopicRepository(val jsonString: String) : TopicRepository {
 }
 
 class LocalStorageTopicRepository : JSONTopicRepository(
-    QuizApp.applicationContext().assets.open("questions.json").bufferedReader()
-        .use { it.readText() }
+    // QuizApp.applicationContext().assets.open("questions.json").bufferedReader()
+    //    .use { it.readText() }
+    try {
+        QuizApp.applicationContext().filesDir.resolve("questions.json").bufferedReader()
+            .use { it.readText() }
+    } catch (e: Exception) {
+        QuizApp.applicationContext().assets.open("questions.json").bufferedReader()
+            .use { it.readText() }
+    }
 )
 
 class PlainTextTopicRepository : TopicRepository {
