@@ -45,7 +45,8 @@ open class JSONTopicRepository(val jsonString: String) : TopicRepository {
 }
 
 class LocalStorageTopicRepository : JSONTopicRepository(
-    QuizApp.context.assets.open("questions.json").bufferedReader().use { it.readText() }
+    QuizApp.applicationContext().assets.open("questions.json").bufferedReader()
+        .use { it.readText() }
 )
 
 class PlainTextTopicRepository : TopicRepository {
@@ -99,17 +100,28 @@ class PlainTextTopicRepository : TopicRepository {
             questions = listOf(
                 Question(
                     title = "When did the first episode of the Marvel Super Heroes release?",
-                    choices = listOf("October 16, 1967", "September 1, 1966", "October 1, 1967", "September 12, 1966"),
+                    choices = listOf(
+                        "October 16, 1967",
+                        "September 1, 1966",
+                        "October 1, 1967",
+                        "September 12, 1966"
+                    ),
                     answerIdx = 1,
                 ),
                 Question(
                     title = "What's the full name of the Scarlet Spider?",
-                    choices = listOf("Benjamin \"Ben\" Reilly", "Peter Benjamin Parker", "Steven Rogers", "Anthony Edward Stark"),
+                    choices = listOf(
+                        "Benjamin \"Ben\" Reilly",
+                        "Peter Benjamin Parker",
+                        "Steven Rogers",
+                        "Anthony Edward Stark"
+                    ),
                     answerIdx = 0,
                 ),
             )
         ),
     )
+
     override fun getTopics(): List<Topic> {
         return topics
     }
